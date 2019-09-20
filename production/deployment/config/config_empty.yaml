@@ -1,0 +1,60 @@
+proxy:
+  secretToken: "787e88ef3e98173a3b3a14732267069e0a2de7cda47a9d600499af24dc8413dc"
+  service:
+    type: LoadBalancer
+    loadBalancerIP: 35.195.156.127
+  https:
+    hosts:
+      - notebooks.inf.h-brs.de
+    letsencrypt:
+      contactEmail: mhm.wasil@gmail.com
+
+hub:
+  cookieSecret: "3ee92f2a6df026f87f57e8d3f08abb17e65237020918b1cc9944eea2d8f841a5"
+  extraConfig: |-
+    c.Spawner.cmd = ['jupyter-labhub']
+
+cull:
+  enable: true
+  timeout: 2700
+
+auth:
+  whitelist:
+    users:
+      - mwasil2s41
+  admin:
+    users:
+      - mwasil2s41
+
+#auth:
+#  type: github
+#  github:
+#    clientId: "4c4b0149fbee3d1edae3"
+#    clientSecret: "be560598fa89096f2e02f1ee72232d9b0eb277d5"
+#    callbackUrl: "http://35.205.211.124/hub/login"
+
+prePuller:
+  continuous:
+    enabled: true
+
+singleuser:
+  defaultUrl: "/tree"
+
+  #lifecycleHooks:
+  #  postStart:
+  #    exec:
+  #      command: ["gitpuller", "https://github.com/WahrscheinlichkeitstheorieUndStatistik/Inhalt", "master", "WahrscheinlichkeitstheorieUndStatistik"]
+
+  memory:
+    limit: 2G
+    guarantee: 0.20G
+  cpu:
+    limit: 0.75
+    guarantee: 0.1
+  image:
+    name : "gcr.io/e2-x-am-datahub/singleuser-winter"
+    tag : "67774ba"
+  storage:
+    dynamic:
+      storageClass: standard
+    capacity: 5Gi
