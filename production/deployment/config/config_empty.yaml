@@ -19,9 +19,15 @@ cull:
   timeout: 2700
 
 auth:
+  type: dummy
+  dummy:
+    password: 'sanktaugustin'
   whitelist:
     users:
       - mwasil2s41
+      - pploeg2m
+      - akuest2m
+      - dnair2m
   admin:
     users:
       - mwasil2s41
