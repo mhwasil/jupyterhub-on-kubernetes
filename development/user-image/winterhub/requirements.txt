@@ -11,5 +11,5 @@ scipy==1.1.0
 statsmodels==0.9.0
 okpy==1.12.5
 ipywidgets==7.2.1
-jupyterlab==0.32.1
+jupyterlab==1.2.21
 sympy==1.3
